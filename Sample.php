@@ -38,8 +38,8 @@
 			echo "Setting target temperatures ($ctemp) for $serial... \r\n";
 			//$success = $nest->setTargetTemperature($ctemp,"02AA01AC311303CZ");
 			//var_dump($success);
-			$success = $nest->setTargetTemperature($ctemp,"09AA01AC31150BP7");
-			var_dump($success);
+			$success = $nest->setTargetTemperaturebyDevice($ctemp,"09AA01AC31150BP7");
+				var_dump($success);
 		}
 		unset($serial);
 		//echo "Setting target temperatures ($ctemp)...\n";
