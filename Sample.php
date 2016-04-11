@@ -56,7 +56,7 @@ require_once 'autoload.php';
 		
 		foreach ($devices_serials as $serial)
 		{
-		$success = $nest->setTargetTemperature(TARGET_TEMP_MODE_COLD,$ctemp,$serial);	
+		$success = $nest->setTargetTemperature('cool',$ctemp,$serial);	
 		var_dump($success);
 		
 							
