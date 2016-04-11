@@ -6,7 +6,7 @@ $password = 'D3adye325';
 
 // The timezone you're in.
 // See http://php.net/manual/en/timezones.php for the possible values.
-date_default_timezone_set('America/Montreal');
+date_default_timezone_set('America/Chicago');
 
 // Here's how to use this class:
 
