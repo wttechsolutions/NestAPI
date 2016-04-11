@@ -43,7 +43,7 @@
 			
 	}
 		//Set Nest Temperature and Heat
-	if ($action = 'tempheat')
+	if ($action = 'heat')
 	{
 		//Set Temperature from Query String
 		$ctemp = $_GET['temp'];
@@ -66,7 +66,7 @@
 	}
 	
 			//Set Nest Temperature and Cool
-	if ($action = 'tempcool')
+	if ($action = 'cool')
 	{
 		//Set Temperature from Query String
 		$ctemp = $_GET['temp'];
