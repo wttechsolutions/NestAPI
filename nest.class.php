@@ -348,9 +348,9 @@ class Nest {
                 echo "Error: when using TARGET_TEMP_MODE_HEAT or TARGET_TEMP_MODE_COLD, you need to set the target temperature (second argument of setTargetTemperatureMode) using an numeric value.\n";
                 return FALSE;
             }
-            //$temperature = $this->temperatureInCelsius($temperature, $serial_number);
-           // $data = json_encode(array('target_change_pending' => TRUE, 'target_temperature' => $temperature));
-          //  $set_temp_result = $this->doPOST("/v2/put/shared." . $serial_number, $data);
+            $temperature = $this->temperatureInCelsius($temperature, $serial_number);
+            $data = json_encode(array('target_change_pending' => TRUE, 'target_temperature' => $temperature));
+            $set_temp_result = $this->doPOST("/v2/put/shared." . $serial_number, $data);
         }
 
         $data = json_encode(array('target_change_pending' => TRUE, 'target_temperature_type' => $mode));
