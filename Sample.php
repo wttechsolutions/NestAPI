@@ -52,16 +52,11 @@ require_once 'autoload.php';
 		//Gets List of Devices
 		$devices_serials = $nest->getDevices();
 		
-		
-		
 		foreach ($devices_serials as $serial)
 		{
 		$success = $nest->setTargetTemperatureMode('heat',$ctemp,$serial);	
 		var_dump($success);
-		
-							
 		}
-		
 		unset($serial);
 			
 	}
@@ -74,22 +69,18 @@ require_once 'autoload.php';
 		
 		//Gets List of Devices
 		$devices_serials = $nest->getDevices();
-		
-		
+			
 		
 		foreach ($devices_serials as $serial)
 		{
 		$success = $nest->setTargetTemperatureMode('cool',$ctemp,$serial);	
 		var_dump($success);
-		
-							
 		}
-		
 		unset($serial);
 	}
 
      //Get Temperature of House
-	if ($action = 'infotemp')
+	if ($action = 'info')
 	{
 		$devices_serials = $nest->getDevices();
 		$infos = $nest->getDeviceInfo($devices_serials[0]);
