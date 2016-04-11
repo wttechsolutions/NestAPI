@@ -60,8 +60,8 @@ require_once 'autoload.php';
 		
 							
 		}
-		//$success = $nest->setTargetTemperature(TARGET_TEMP_MODE_HEAT,$ctemp);	
-		$infos = $nest->getDeviceInfo($devices_serials[0]);
+		$success = $nest->setTargetTemperature(TARGET_TEMP_MODE_COOL,$ctemp);	
+		
 		print_r($infos);
 		var_dump($success);
 		unset($serial);
