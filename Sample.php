@@ -60,7 +60,7 @@ require_once 'autoload.php';
 		
 							
 		}
-		$success = $nest->setTargetTemperature(TARGET_TEMP_MODE_COOL,$ctemp);	
+		$success = $nest->setTargetTemperature(TARGET_TEMP_MODE_COLD,$ctemp);	
 		
 		
 		var_dump($success);
