@@ -55,7 +55,7 @@
 		foreach ($devices_serials as $serial)
 		{
 			echo "Setting target temperatures ($ctemp) for $serial... \r\n";
-			$success = $nest->setTargetTemperature(TARGET_TEMP_MODE_HEAT,$ctemp,$serial);	
+			$success = $nest->setTargetTemperature(TARGET_TEMP_MODE_HEAT,$ctemp);	
 			var_dump($success);
 							
 		}
