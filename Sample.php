@@ -47,11 +47,11 @@
 	{
 		//Set Temperature from Query String
 		$ctemp = $_GET['temp'];
-		echo <br/>;
+		echo '<br/>';
 		//Gets List of Devices
 		$devices_serials = $nest->getDevices();
 		echo $ctemp;
-		echo <br/>;
+		echo '<br/>';
 		
 		foreach ($devices_serials as $serial)
 		{
