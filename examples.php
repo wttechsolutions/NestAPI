@@ -13,7 +13,7 @@ date_default_timezone_set('America/Chicago');
 require_once 'autoload.php'; // Or use composer
 autoloader(array( 'Nest'));
 $cached_paths = autoloader(); 
-use Nest\Nest as Nest;
+use Nest as Nest;
 
 $nest = new Nest($username, $password);
 
