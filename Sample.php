@@ -48,11 +48,11 @@ require_once 'autoload.php';
 	{
 		//Set Temperature from Query String
 		$ctemp = $_GET['temp'];
-		echo '<br/>';
+		
 		//Gets List of Devices
 		$devices_serials = $nest->getDevices();
-		echo $ctemp;
-		echo '<br/>';
+		
+		
 		
 		foreach ($devices_serials as $serial)
 		{
@@ -60,7 +60,9 @@ require_once 'autoload.php';
 		
 							
 		}
-		$success = $nest->setTargetTemperature(TARGET_TEMP_MODE_HEAT,$ctemp);	
+		//$success = $nest->setTargetTemperature(TARGET_TEMP_MODE_HEAT,$ctemp);	
+		$infos = $nest->getDeviceInfo($devices_serials[0]);
+		print_r($infos);
 		var_dump($success);
 		unset($serial);
 			
