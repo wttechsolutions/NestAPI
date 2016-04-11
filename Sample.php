@@ -73,12 +73,12 @@
 		
 		//Gets List of Devices
 		$devices_serials = $nest->getDevices();
-		
+		echo $ctemp;
 		
 		foreach ($devices_serials as $serial)
 		{
 			echo "Setting target temperatures ($ctemp) for $serial... \r\n";
-			$success = $nest->setTargetTemperatureMode(TARGET_TEMP_MODE_COOL,$ctemp,$serial);	
+			//$success = $nest->setTargetTemperatureMode(TARGET_TEMP_MODE_COOL,$ctemp,$serial);	
 			var_dump($success);
 							
 		}
