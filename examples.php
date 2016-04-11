@@ -130,3 +130,5 @@ function jlog($json) {
     }
     echo $json . "\n";
 }
+
+?>
