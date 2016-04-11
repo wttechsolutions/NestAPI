@@ -50,19 +50,19 @@ require_once 'autoload.php';
 		$ctemp = $_GET['temp'];
 		
 		//Gets List of Devices
-		$devices_serials = $nest->getDevices();
+		//$devices_serials = $nest->getDevices();
+		$success = $nest->setTargetTemperature('cool',$ctemp,'02AA01AC311303CZ');	
 		
 		
-		
-		foreach ($devices_serials as $serial)
+		/*foreach ($devices_serials as $serial)
 		{
-		$success = $nest->setTargetTemperature('cool',$ctemp,$serial);	
+		
 		var_dump($success);
 		
 							
 		}
 		
-		unset($serial);
+		unset($serial);*/
 			
 	}
 	
