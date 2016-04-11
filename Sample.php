@@ -60,7 +60,7 @@
 							
 		}
 		//$success = $nest->setTargetTemperature(TARGET_TEMP_MODE_HEAT,$ctemp,"09AA01AC31150BP7");	
-			var_dump($success);
+		//	var_dump($success);
 		unset($serial);
 			
 	}
