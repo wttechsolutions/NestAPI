@@ -56,7 +56,7 @@ require_once 'autoload.php';
 		
 		foreach ($devices_serials as $serial)
 		{
-		$success = $nest->setTargetTemperatureMode('cool',$ctemp,$serial);	
+		$success = $nest->setTargetTemperatureMode('heat',$ctemp,$serial);	
 		var_dump($success);
 		
 							
@@ -66,27 +66,39 @@ require_once 'autoload.php';
 			
 	}
 	
-			//Set Nest Temperature and Cool
+	//Set Nest Temperature and Cool
 	if ($action = 'cool')
 	{
-		//Set Temperature from Query String
+//Set Temperature from Query String1
 		$ctemp = $_GET['temp'];
 		
 		//Gets List of Devices
 		$devices_serials = $nest->getDevices();
-		echo $ctemp;
+		
+		
 		
 		foreach ($devices_serials as $serial)
 		{
-			echo "Setting target temperatures ($ctemp) for $serial... \r\n";
-			//$success = $nest->setTargetTemperatureMode(TARGET_TEMP_MODE_COOL,$ctemp,$serial);	
-			var_dump($success);
+		$success = $nest->setTargetTemperatureMode('cool',$ctemp,$serial);	
+		var_dump($success);
+		
 							
 		}
+		
 		unset($serial);
-			
 	}
 
+     //Get Temperature of House
+	if ($action = 'infotemp')
+	{
+		$devices_serials = $nest->getDevices();
+		$infos = $nest->getDeviceInfo($devices_serials[0]);
+		printf("%.02f", $infos->current_state->temperature, $infos->scale);
+	
+	}
+	
+	
+	
 	
 //echo "Setting target temperature mode...\n";
 //$success = $nest->setTargetTemperatureMode(TARGET_TEMP_MODE_HEAT); // Available: TARGET_TEMP_MODE_COOL, TARGET_TEMP_MODE_HEAT, TARGET_TEMP_MODE_RANGE
