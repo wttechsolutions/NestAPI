@@ -1,44 +1,99 @@
 <?php require_once('nest.class.php'); ?>
 <?php include_once "Config.php" ?>
-<?php include_once('phpMyGraph5.0.php'); ?>
     
     
 
 <?php
-	//Set content-type header
-    
-	//header("Content-type: image/png");
-
-	//Set config directives
-	
-    $cfg['title'] = 'Example graph';
-    $cfg['width'] = 500;
-    $cfg['height'] = 250;
-
-
+require_once 'autoload.php';
+	//Initialize Nest with credentails from config
 	$nest = new Nest($username, $password);
 	
-	$energy_report = ($nest->getEnergyLatest());
-	$jsondata=jlog($energy_report);
-	$erport = json_decode($jsondata ,true);
-	//$json = '{"countryId":"84","productId":"1","status":"0","opId":"134"}';
-	//$json = json_decode($json, true);
-	//print_r($json);
-	//echo '\n';
-	print_r($erport);
-	$data=[];
-	/*foreach($arrayOfEmails as $item)
+	
+	//Set Nest Status to Home 
+	$action = $_GET['action'];
+	if ($action == 'home')
 	{
+		$success = $nest->setAway(AWAY_MODE_ON); // Available: AWAY_MODE_ON, AWAY_MODE_OFF
+		var_dump($success);
+	}
+	//Set Nest Status to Away
+	if ($action == 'away')
+	{
+		$success = $nest->setAway(AWAY_MODE_OFF); // Available: AWAY_MODE_ON, AWAY_MODE_OFF
+		var_dump($success);
+	}
+	
+		//Set Nest Temperature
+	if ($action == 'temp')
+	{
+		//Set Temperature from Query String
+		$ctemp = $_GET['temp'];
+		
+		//Gets List of Devices
+		$devices_serials = $nest->getDevices();
+		
+		
+		foreach ($devices_serials as $serial)
+		{
+			echo "Setting target temperatures ($ctemp) for $serial... \r\n";
+			$success = $nest->setTargetTemperature($ctemp,$serial);	
+			var_dump($success);
+							
+		}
+		unset($serial);
 			
-	}*/
+	}
+		//Set Nest Temperature and Heat
+	if ($action == 'heat')
+	{
+		//Set Temperature from Query String1
+		$ctemp = $_GET['temp'];
+		
+		//Gets List of Devices
+		$devices_serials = $nest->getDevices();
+		
+		foreach ($devices_serials as $serial)
+		{
+		$success = $nest->setTargetTemperatureMode('heat',$ctemp,$serial);	
+		var_dump($success);
+		}
+		unset($serial);
+			
+	}
+	
+	//Set Nest Temperature and Cool
+	if ($action == 'cool')
+	{
+//Set Temperature from Query String1
+		$ctemp = $_GET['temp'];
+		
+		//Gets List of Devices
+		$devices_serials = $nest->getDevices();
+			
+		
+		foreach ($devices_serials as $serial)
+		{
+		$success = $nest->setTargetTemperatureMode('cool',$ctemp,$serial);	
+		var_dump($success);
+		}
+		unset($serial);
+	}
 
-
-	//Create phpMyGraph instance
-    //$graph = new phpMyGraph();
-
-    //Parse 
-    //$graph->parseVerticalPolygonGraph($data, $cfg);
-
+     //Get Temperature of House
+	if ($action == 'info')
+	{
+		$devices_serials = $nest->getDevices();
+		$infos = $nest->getDeviceInfo($devices_serials[0]);
+		printf("%.02f", $infos->current_state->temperature, $infos->scale);
+	
+	}
+	
+	
+	
+	
+//echo "Setting target temperature mode...\n";
+//$success = $nest->setTargetTemperatureMode(TARGET_TEMP_MODE_HEAT); // Available: TARGET_TEMP_MODE_COOL, TARGET_TEMP_MODE_HEAT, TARGET_TEMP_MODE_RANGE
+//var_dump($success);
 	
 	function json_format($json) { 
     $tab = "  "; 
