@@ -30,10 +30,10 @@
 		//Set Nest Temperatue
 	if ($action = 'temp')
 	{
-		echo $ctemp;
-		//echo "Setting target temperatures (range)...\n";
-		//$success = $nest->setTargetTemperature($temp);
-		//var_dump($success);
+		
+		echo "Setting target temperatures ($ctemp)...\n";
+		$success = $nest->setTargetTemperature($temp);
+		var_dump($success);
 	}
 
 
