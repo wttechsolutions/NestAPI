@@ -7,11 +7,6 @@
 	//Initialize Nest with credentails from config
 	$nest = new Nest($username, $password);
 	
-	//Set Temperature from String
-	$ctemp = 74;
-	
-	//Convert Temp from Farenheight to Celsius
-	//$ctemp =  ($temp -32) * (5/9);
 	
 	//Set Nest Status to Home 
 	$action = $_GET['action'];
@@ -27,29 +22,67 @@
 		var_dump($success);
 	}
 	
-		//Set Nest Temperatue
+		//Set Nest Temperature
 	if ($action = 'temp')
 	{
+		//Set Temperature from Query String
+		$ctemp = $_GET['temp'];
 		
+		//Gets List of Devices
 		$devices_serials = $nest->getDevices();
 		
-		var_dump($success);
-		//print_r($devices_serials);
+		
 		foreach ($devices_serials as $serial)
 		{
 			echo "Setting target temperatures ($ctemp) for $serial... \r\n";
 			$success = $nest->setTargetTemperature($ctemp,$serial);	
-			//var_dump($success);
-			
-			
-			
-				
+			var_dump($success);
+							
 		}
 		unset($serial);
-		//echo "Setting target temperatures ($ctemp)...\n";
-		
+			
 	}
-
+		//Set Nest Temperature and Heat
+	if ($action = 'tempheat')
+	{
+		//Set Temperature from Query String
+		$ctemp = $_GET['temp'];
+		
+		//Gets List of Devices
+		$devices_serials = $nest->getDevices();
+		
+		
+		foreach ($devices_serials as $serial)
+		{
+			echo "Setting target temperatures ($ctemp) for $serial... \r\n";
+			$success = $nest->setTargetTemperature(TARGET_TEMP_MODE_HEAT,$ctemp,$serial);	
+			var_dump($success);
+							
+		}
+		unset($serial);
+			
+	}
+	
+			//Set Nest Temperature and Cool
+	if ($action = 'tempcool')
+	{
+		//Set Temperature from Query String
+		$ctemp = $_GET['temp'];
+		
+		//Gets List of Devices
+		$devices_serials = $nest->getDevices();
+		
+		
+		foreach ($devices_serials as $serial)
+		{
+			echo "Setting target temperatures ($ctemp) for $serial... \r\n";
+			$success = $nest->setTargetTemperatureMode(TARGET_TEMP_MODE_COOL,$ctemp,$serial);	
+			var_dump($success);
+							
+		}
+		unset($serial);
+			
+	}
 
 	
 //echo "Setting target temperature mode...\n";
