@@ -47,10 +47,11 @@
 	{
 		//Set Temperature from Query String
 		$ctemp = $_GET['temp'];
-		
+		echo <br/>;
 		//Gets List of Devices
 		$devices_serials = $nest->getDevices();
 		echo $ctemp;
+		echo <br/>;
 		
 		foreach ($devices_serials as $serial)
 		{
@@ -59,8 +60,8 @@
 		//	var_dump($success);
 							
 		}
-		//$success = $nest->setTargetTemperature(TARGET_TEMP_MODE_HEAT,$ctemp,"09AA01AC31150BP7");	
-		//	var_dump($success);
+		$success = $nest->setTargetTemperature(TARGET_TEMP_MODE_HEAT,$ctemp,"09AA01AC31150BP7");	
+		var_dump($success);
 		unset($serial);
 			
 	}
