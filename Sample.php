@@ -11,20 +11,20 @@ require_once 'autoload.php';
 	
 	//Set Nest Status to Home 
 	$action = $_GET['action'];
-	if ($action = 'home')
+	if ($action == 'home')
 	{
 		$success = $nest->setAway(AWAY_MODE_ON); // Available: AWAY_MODE_ON, AWAY_MODE_OFF
 		var_dump($success);
 	}
 	//Set Nest Status to Away
-	if ($action = 'away')
+	if ($action == 'away')
 	{
 		$success = $nest->setAway(AWAY_MODE_OFF); // Available: AWAY_MODE_ON, AWAY_MODE_OFF
 		var_dump($success);
 	}
 	
 		//Set Nest Temperature
-	if ($action = 'temp')
+	if ($action == 'temp')
 	{
 		//Set Temperature from Query String
 		$ctemp = $_GET['temp'];
@@ -44,7 +44,7 @@ require_once 'autoload.php';
 			
 	}
 		//Set Nest Temperature and Heat
-	if ($action = 'heat')
+	if ($action == 'heat')
 	{
 		//Set Temperature from Query String1
 		$ctemp = $_GET['temp'];
@@ -62,7 +62,7 @@ require_once 'autoload.php';
 	}
 	
 	//Set Nest Temperature and Cool
-	if ($action = 'cool')
+	if ($action == 'cool')
 	{
 //Set Temperature from Query String1
 		$ctemp = $_GET['temp'];
@@ -80,7 +80,7 @@ require_once 'autoload.php';
 	}
 
      //Get Temperature of House
-	if ($action = 'info')
+	if ($action == 'info')
 	{
 		$devices_serials = $nest->getDevices();
 		$infos = $nest->getDeviceInfo($devices_serials[0]);
