@@ -359,18 +359,11 @@ class Nest {
 
     public function setTargetTemperature($temperature, $serial_number=null) {
         $serial_number = $this->getDefaultSerial($serial_number);
-		echo $serial_number;
         $temperature = $this->temperatureInCelsius($temperature, $serial_number);
         $data = json_encode(array('target_change_pending' => TRUE, 'target_temperature' => $temperature));
         return $this->doPOST("/v2/put/shared." . $serial_number, $data);
     }
-	
-    public function setTargetTemperaturebyDevice($temperature, $serial_number) {      
-        $temperature = $this->temperatureInCelsius($temperature, $serial_number);
-        $data = json_encode(array('target_change_pending' => TRUE, 'target_temperature' => $temperature));
-        return $this->doPOST("/v2/put/shared." . $serial_number, $data);
-    }
-    
+
     public function setTargetTemperatures($temp_low, $temp_high, $serial_number=null) {
         $serial_number = $this->getDefaultSerial($serial_number);
         $temp_low = $this->temperatureInCelsius($temp_low, $serial_number);

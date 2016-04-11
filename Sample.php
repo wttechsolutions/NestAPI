@@ -8,7 +8,7 @@
 	$nest = new Nest($username, $password);
 	
 	//Set Temperature from String
-	$ctemp = 75;
+	$ctemp = 74;
 	
 	//Convert Temp from Farenheight to Celsius
 	//$ctemp =  ($temp -32) * (5/9);
@@ -32,13 +32,13 @@
 	{
 		
 		$devices_serials = $nest->getDevices();
-		$success = $nest->setTargetTemperature($ctemp,"02AA01AC311303CZ");
+		
 		var_dump($success);
 		//print_r($devices_serials);
 		foreach ($devices_serials as $serial)
 		{
 			echo "Setting target temperatures ($ctemp) for $serial... \r\n";
-			
+			$success = $nest->setTargetTemperature($ctemp,$serial);	
 			//var_dump($success);
 			
 			
