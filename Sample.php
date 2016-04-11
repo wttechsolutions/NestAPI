@@ -38,9 +38,9 @@
 			echo "Setting target temperatures ($ctemp) for $serial... \r\n";
 			//$success = $nest->setTargetTemperature($ctemp,"02AA01AC311303CZ");
 			//var_dump($success);
-			$infos = $nest->getDeviceInfo($devices_serials[0]);	
-			//$serial_number = $this->getDefaultSerial($serial_number);
-			print_r($infos);
+			
+			$serial_number = $this->getDefaultSerial($serial);
+			echo $serial_number;
 				var_dump($success);
 		}
 		unset($serial);
