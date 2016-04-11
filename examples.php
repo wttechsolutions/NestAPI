@@ -1,8 +1,8 @@
 <?php
 
 // Your Nest username and password.
-$username = 'you@gmail.com';
-$password = 'Something other than 1234 right?';
+$username = 'mbadali25@gmail.com';
+$password = 'D3adye325';
 
 // The timezone you're in.
 // See http://php.net/manual/en/timezones.php for the possible values.
@@ -50,10 +50,10 @@ $success = $nest->setTargetTemperatures(23.0, 26.0);
 var_dump($success);
 
 echo "Setting target temperature mode...\n";
-$success = $nest->setTargetTemperatureMode(Nest::TARGET_TEMP_MODE_COOL, 26.0); // Available: TARGET_TEMP_MODE_COOL, TARGET_TEMP_MODE_HEAT, TARGET_TEMP_MODE_RANGE
+$success = $nest->setTargetTemperatureMode(Nest::TARGET_TEMP_MODE_HEAT, 26.0); // Available: TARGET_TEMP_MODE_COOL, TARGET_TEMP_MODE_HEAT, TARGET_TEMP_MODE_RANGE
 var_dump($success);
 
-echo "Setting target temperature mode (range)...\n";
+/*echo "Setting target temperature mode (range)...\n";
 $success = $nest->setTargetTemperatureMode(Nest::TARGET_TEMP_MODE_RANGE, array(23.0, 26.0)); // Available: TARGET_TEMP_MODE_COOL, TARGET_TEMP_MODE_HEAT, TARGET_TEMP_MODE_RANGE
 var_dump($success);
 
@@ -121,7 +121,7 @@ echo "Last 10 days energy report:\n";
 $energy_report = $nest->getEnergyLatest();
 jlog($energy_report);
 echo "----------\n\n";
-
+*/
 /* Helper functions */
 
 function jlog($json) {
