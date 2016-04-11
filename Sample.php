@@ -8,10 +8,10 @@
 	$nest = new Nest($username, $password);
 	
 	//Set Temperature from String
-	$temp = 75;
+	$ctemp = 75;
 	
 	//Convert Temp from Farenheight to Celsius
-	$ctemp =  ($temp -32) * (5/9);
+	//$ctemp =  ($temp -32) * (5/9);
 	
 	//Set Nest Status to Home 
 	$action = $_GET['action'];
