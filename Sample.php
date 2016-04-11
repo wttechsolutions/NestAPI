@@ -46,7 +46,7 @@ require_once 'autoload.php';
 		//Set Nest Temperature and Heat
 	if ($action = 'heat')
 	{
-		//Set Temperature from Query String
+		//Set Temperature from Query String1
 		$ctemp = $_GET['temp'];
 		
 		//Gets List of Devices
@@ -62,7 +62,7 @@ require_once 'autoload.php';
 		}
 		$success = $nest->setTargetTemperature(TARGET_TEMP_MODE_COOL,$ctemp);	
 		
-		print_r($infos);
+		
 		var_dump($success);
 		unset($serial);
 			
