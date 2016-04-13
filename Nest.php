@@ -4,7 +4,7 @@
     
 
 <?php
-require_once 'autoload.php';
+
 	//Initialize Nest with credentails from config
 	$nest = new Nest($username, $password);
 	
