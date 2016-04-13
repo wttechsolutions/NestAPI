@@ -13,13 +13,13 @@
 	$action = $_GET['action'];
 	if ($action == 'home')
 	{
-		$success = $nest->setAway(AWAY_MODE_ON); // Available: AWAY_MODE_ON, AWAY_MODE_OFF
+		$success = $nest->setAway(AWAY_MODE_OFF); // Available: AWAY_MODE_ON, AWAY_MODE_OFF
 		var_dump($success);
 	}
 	//Set Nest Status to Away
 	if ($action == 'away')
 	{
-		$success = $nest->setAway(AWAY_MODE_OFF); // Available: AWAY_MODE_ON, AWAY_MODE_OFF
+		$success = $nest->setAway(AWAY_MODE_ON); // Available: AWAY_MODE_ON, AWAY_MODE_OFF
 		var_dump($success);
 	}
 	
